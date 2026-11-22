@@ -1,0 +1,4 @@
+# Normalize source text across platforms; preserve approved deliverable bytes.
+* text=auto eol=lf
+*.ipynb -text
+*.pdf binary

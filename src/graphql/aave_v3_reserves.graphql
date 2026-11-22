@@ -1,0 +1,9 @@
+# Verified against the Aave repository schema; the collector also introspects live fields.
+query ReservesAtBlock($block: Int!, $after: ID!) {
+  _meta(block: {number: $block}) { deployment hasIndexingErrors block { number hash } }
+  reserves(first: 1000, orderBy: id, orderDirection: asc, where: {id_gt: $after}, block: {number: $block}) {
+    id underlyingAsset symbol decimals totalATokenSupply totalCurrentVariableDebt
+    totalPrincipalStableDebt availableLiquidity liquidityRate variableBorrowRate
+    utilizationRate lastUpdateTimestamp pool { id pool }
+  }
+}

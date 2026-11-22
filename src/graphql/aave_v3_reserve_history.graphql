@@ -1,0 +1,10 @@
+# Event-driven reserve parameter observations, not daily closing balances.
+query ReserveHistory($start: Int!, $end: Int!, $after: ID!, $block: Int!) {
+  reserveParamsHistoryItems(first: 1000, orderBy: id, orderDirection: asc,
+    block: {number: $block},
+    where: {timestamp_gte: $start, timestamp_lt: $end, id_gt: $after}) {
+    id timestamp reserve { id underlyingAsset symbol decimals pool { id pool } }
+    totalATokenSupply totalCurrentVariableDebt totalPrincipalStableDebt availableLiquidity
+    utilizationRate liquidityRate variableBorrowRate liquidityIndex variableBorrowIndex
+  }
+}

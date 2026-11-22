@@ -1,0 +1,30 @@
+# Publish only reviewed deliverables and their working source dependencies.
+/*
+!/.gitignore
+!/.gitattributes
+!/.env.example
+!/README.md
+!/requirements.txt
+!/DeFi_EDA.ipynb
+!/src/
+!/tests/
+!/reports/
+/reports/*
+!/reports/DeFi_EDA_Report.pdf
+!/reports/USDC_CHECK_REPORT.md
+# Earlier builder does not reproduce the approved PDF edition.
+/src/stage5.py
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+*.log
+*.tmp
+*.bak
+*~
+*.png
+eda_output/
